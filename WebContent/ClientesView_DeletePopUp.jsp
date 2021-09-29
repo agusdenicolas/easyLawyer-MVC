@@ -87,7 +87,7 @@
 			}
 			button {
 				width: 100px;
-				<!--padding: 10px; -->
+				/*padding: 10px;*/
 				border: none;
 				-webkit-border-radius: 5px;
 				-moz-border-radius: 5px;

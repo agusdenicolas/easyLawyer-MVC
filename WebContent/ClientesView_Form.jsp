@@ -121,14 +121,14 @@
 				text-align: center;
 			}
 			button {
-				width: 150px;
-				padding: 10px;
+				width: 100px;
+				/*padding: 10px;*/
 				border: none;
 				-webkit-border-radius: 5px;
 				-moz-border-radius: 5px;
 				border-radius: 5px;
 				background-color: #f37e11;
-				font-size: 16px;
+				font-size: 14px;
 				color: #fff;
 				cursor: pointer;
 			}
@@ -185,6 +185,7 @@
 						<input type="text" name="numero" placeholder="Numero" />
 						<select>
 						 	<option selected>Provincia</option>
+						 	
 							<!-- LOGICA PARA DROPBOX PROVINCIAS -->
 							<option value="1">Russia</option>
 							<option value="2">Germany</option>
@@ -203,9 +204,8 @@
 					<input type="text" name="cuit" placeholder="27 65248632 9" />
 				</div>
 				<div class="btn-block">
-				
-					
-					<button type="button" onclick="deleteCliente_popUp()" href="/">SEND</button>
+					<button type="button" onclick="deleteCliente_popUp()" href="/">Aceptar</button>
+					<button type="button" onclick="" href="/">Cancelar</button>
 				</div>
 			</form>
 		</div>
