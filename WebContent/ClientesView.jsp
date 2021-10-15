@@ -1,69 +1,55 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="usal.implementaciones.ClienteDaoImplMySql"%>
+<%@page import="usal.interfaces.ICrudDao"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="usal.dominio.Cliente"%>
+<%@page import="java.util.List"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<% List<Cliente> clientes = (ArrayList<Cliente>)request.getAttribute("clientes"); %>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
+		<link href="styles/TableStyles.css" type="text/css" rel="stylesheet"/>
 		<title>Easy Lawyer</title>
+		
 	</head>
 	
 	<body>
-		<body>
-			<h1>Clientes</h1>
+		<h1>Clientes</h1>
 	
-			<br /><br />
-	
-			<div style="margin: auto 50px">
-				<input style="display: block; margin-left: auto" type="button" value="+" />
-	
-				<table border="1" style="width: 100%; text-align: center; margin-top: 5px">
-					<tr style="font-weight: bold">
-						<td>ID</td>
-						<td>Nombre</td>
-						<td>Mail</td>
-						<td>Telefono</td>
-						<td>Direccion</td>
-						<td>Cuit</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>Agustin de Nicolas</td>
-						<td>agustin.denicolas@usal.edu.ar</td>
-						<td>11 3214-6547</td>
-						<td>Saravi 3588, La Lonja Pilar</td>
-						<td>27-42496650-9</td>
-						<td style="display: flex; justify-content: space-between">
-							<input style="width: 48.5%" type="button" value="Edit" />
-							<input style="width: 48.5%" type="button" value="Delete" />
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>Carolina Segui</td>
-						<td>carolina.segui@usal.edu.ar</td>
-						<td>11 1234-5678</td>
-						<td>Saravi 3588, La Lonja Pilar</td>
-						<td>27-42496650-9</td>
-						<td style="display: flex; justify-content: space-between">
-							<input style="width: 48.5%" type="button" value="Edit" />
-							<input style="width: 48.5%" type="button" value="Delete" />
-						</td>
-					</tr>
-	
-					<!-- <c:forEach var="x" items="${camiones}">
-			<tr>
-				<td>${x.getIdCamion()}</td>
-				<td>${x.getMarca()}</td>
-				<td>${x.getModelo()}</td>
-				<td>${x.getPatente()}</td>
-				<td>${x.getNroMotor()}</td>
-				<td>${x.getNroChasis()}</td>
-				<td>${x.getToneladasMax()}</td>
-				<td>${x.getLitrosNafta()}</td>
-				<td>${x.getLitrosPorKm()}</td>
-			</tr>
-		</c:forEach> -->
-				</table>
-			</div>
+		<br /><br />
+						
+		<div class="table-wrapper">
+			<table class="fl-table">
+		        <thead>
+			        <tr>
+			            <th>ID</th>
+			            <th>Nombre</th>
+			            <th>Mail</th>
+			            <th>Telefono</th>
+			            <th>Direccion</th>
+			            <th>Cuit</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			    	<c:forEach var="x" items="${clientes}">
+						<tr>
+					  		<td>${x.getIdCliente()}</td>
+					        <td>${x.getNombre()} ${x.getApellido()}</td>
+					        <td>${x.getMail()}</td>
+					        <td>${x.getCelular()}</td>
+					        <td>${x.getDireccion().toString()}</td>
+					        <td>${x.getCuit()}</td>
+					        <td style="width: 10%; justify-content: space-between">
+								<input type="button" value="Edit" />
+								<input type="button" value="Delete" onclick="return(confirm('¿ Seguro que quiere eliminar al cliente Agustin - ID= 1 ?'))" />
+							</td>
+					   	</tr>
+				   	</c:forEach>
+				<tbody>
+		    </table>
+		</div>
 	</body>
 </html>
