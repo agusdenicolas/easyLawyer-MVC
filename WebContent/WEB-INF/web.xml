@@ -9,7 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
- 
-  
+  <servlet>
+    <description></description>
+    <display-name>ClientesView_Form</display-name>
+    <servlet-name>ClientesView_Form</servlet-name>
+    <jsp-file>/ClientesView_Form.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClientesView_Form</servlet-name>
+    <url-pattern>/ClientesView_Form</url-pattern>
+  </servlet-mapping>
 </web-app>
